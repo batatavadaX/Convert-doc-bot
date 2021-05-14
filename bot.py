@@ -12,8 +12,8 @@ m = Client("m", api_id=APP_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 @m.on_message(filters.command("d", prefixes="/"))
 async def send(Client, m: Message):
     try:
-        k = await Client.download_media(message=m.reply_to_message, progress=prog)
-        await Client.send_document(m.chat.id, k, progress=prog)
+        k = await Client.download_media(message=m.reply_to_message, progress=prog(m))
+        await Client.send_document(m.chat.id, k, progress=prog(m))
     except Exception as e:
         await m.reply(e)
 
