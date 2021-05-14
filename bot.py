@@ -17,7 +17,7 @@ async def send(Client, m: Message):
     except Exception as e:
         await m.reply(e)
 
-def prog(current, total, m: Message):
-    message.edit(m=f"{current * 100 / total:.1f}%")
+async def prog(current, total, m: Message):
+    await m.edit(m=f"{current * 100 / total:.1f}%")
 
 m.run()
