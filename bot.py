@@ -18,6 +18,6 @@ async def send(Client, m: Message):
         await m.reply(e)
 
 async def progress(current, total):
-    await Message.edit(f"{current * 100 / total:.1f}%")
+    await Message.edit_text(text=f"{current * 100 / total:.1f}%")
 
 m.run()
