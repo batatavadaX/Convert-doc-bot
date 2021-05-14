@@ -15,7 +15,7 @@ async def send(Client, m: Message):
         k = await Client.download_media(message=m.reply_to_message, progress=progress)
         await m.send_document(m.chat.id, k, progress=progress)
     except Exception as e:
-        await message.reply(m.chat.id, e)
+        await m.reply(m.chat.id, e)
 
 async def progress(current, total, m: Message):
     await m.edit(f"{current * 100 / total:.1f}%")
