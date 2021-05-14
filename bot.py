@@ -13,6 +13,7 @@ m = Client("m", api_id=APP_ID, api_hash=API_HASH, bot_token=BOT_TOKEN)
 async def send(Client, m: Message):
     try:
         current = ""
+        total = ""
         k = await Client.download_media(message=m.reply_to_message, progress=await m.edit(f"{current * 100 / total:.1f}%"))
         await Client.send_document(m.chat.id, k, progress=await m.edit(f"{current * 100 / total:.1f}%"))
     except Exception as e:
