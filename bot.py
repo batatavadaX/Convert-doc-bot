@@ -18,6 +18,7 @@ async def send(Client, m: Message):
         await m.reply(e)
 
 async def prog(current, total):
-    await Message.edit_text(f"{current * 100 / total:.1f}%")
+    gcp = "{current * 100 / total:.1f}%"
+    await Message.edit_text(gcp)
 
 m.run()
